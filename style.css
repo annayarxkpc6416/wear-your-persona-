@@ -17,7 +17,8 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: Arial, "Noto Sans TC", sans-serif;
+  font-family: "DFMingStd-W7", "PMingLiU", "MingLiU", "Songti TC", "Noto Serif TC", serif;
+  font-weight: 700;
   background: var(--bg);
   color: var(--text);
   display: grid;
@@ -46,6 +47,30 @@ body {
   justify-content: center;
 }
 
+#home-page.active {
+  align-items: center;
+  text-align: center;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.home-logo {
+  display: block;
+  width: min(84%, 430px);
+  height: auto;
+  margin: 4px auto 28px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: logoFadeIn 1s ease-out 0.15s forwards;
+}
+
 .eyebrow {
   margin: 0 0 12px;
   color: var(--accent);
@@ -67,7 +92,7 @@ h1 {
 
 h1 span {
   font-size: 30px;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 h2 {
@@ -80,6 +105,10 @@ h2 {
   color: var(--muted);
   font-size: 18px;
   line-height: 1.7;
+}
+
+#home-page .intro {
+  margin-top: 0;
 }
 
 .primary-btn,
@@ -202,6 +231,13 @@ h2 {
   }
 }
 
+@keyframes logoFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 640px) {
   body {
     padding: 16px;
@@ -210,6 +246,11 @@ h2 {
   .app {
     min-height: 560px;
     padding: 32px 22px;
+  }
+
+  .home-logo {
+    width: min(92%, 330px);
+    margin-bottom: 24px;
   }
 
   .options.has-images {

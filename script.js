@@ -96,18 +96,22 @@ const questions = [
     options: [
       {
         text: "一件剪裁俐落的長版外套，搭上深色內搭後，整體立刻沉靜下來、有了重量，帶一點不容易讀懂的距離感。",
+        image: "images/q03-1.png",
         scores: { D: 2, A: 1 }
       },
       {
         text: "一件帶蕾絲領口的復古襯衫，搭長裙或瑪莉珍鞋時，會讓整套穿搭變得柔和又有故事感。",
+        image: "images/q03-2.png",
         scores: { B: 2, C: 1 }
       },
       {
         text: "一件短版毛呢外套，搭配小包與亮面皮鞋，會讓整個人看起來精緻、亮眼，像是出門前有認真打理過。",
+        image: "images/q03-3.png",
         scores: { C: 2, A: 1 }
       },
       {
         text: "一件寬鬆外套，裡面搭舒適上衣，再配上好走的鞋子；既能自由行動，也不會顯得太用力。",
+        image: "images/q03-4.png",
         scores: { E: 2, F: 1 }
       }
     ]
@@ -118,18 +122,22 @@ const questions = [
     options: [
       {
         text: "一件白色系大衣或俐落西裝外套，站在白牆旁，讓灰黑線條成為展場裡最安靜的存在。",
+        image: "images/q04-1.png",
         scores: { A: 2, D: 1 }
       },
       {
         text: "復古襯衫、緞面長裙與珍珠耳飾在燈下帶著柔光，像從舊畫報走進現場。",
+        image: "images/q04-2.png",
         scores: { B: 2, C: 1 }
       },
       {
         text: "一件柔軟針織衫配寬鬆長褲，自在，不特別講究造型，但站在人群裡很舒服。",
+        image: "images/q04-3.png",
         scores: { F: 2, B: 1 }
       },
       {
         text: "寬版外套、斜背包與球鞋讓你能自由穿過人群，不被場地綁住。",
+        image: "images/q04-4.png",
         scores: { E: 2, A: 1 }
       }
     ]
@@ -140,18 +148,22 @@ const questions = [
     options: [
       {
         text: "棉麻或法蘭絨（帶毛絨感、柔軟保暖的厚織布），舒服，讓身體可以放鬆呼吸。",
+        image: "images/q05-1.png",
         scores: { F: 2, A: 1 }
       },
       {
         text: "緞面（帶柔亮光澤的布料）、蕾絲與珍珠細節，觸感柔和，像把浪漫藏在細節裡。",
+        image: "images/q05-2.png",
         scores: { B: 2, C: 1 }
       },
       {
         text: "粗花呢（帶顆粒感、略蓬鬆的厚織布）、金屬釦與亮面皮革，精緻但不柔弱，帶一點小脾氣。",
+        image: "images/q05-3.png",
         scores: { C: 2, D: 1 }
       },
       {
         text: "尼龍（輕、防潑水感的機能布）、丹寧與厚磅棉料，耐穿、能動，像衣服本身就有行動力。",
+        image: "images/q05-4.png",
         scores: { E: 2, F: 1 }
       }
     ]
@@ -184,18 +196,22 @@ const questions = [
     options: [
       {
         text: "一件黑色系的高領或長版外套，冷靜、有戒備感，像不需要靠表情也能成立的畫面，卻又精緻得讓人多看一眼。",
+        image: "images/q07-1.png",
         scores: { D: 2, C: 1 }
       },
       {
         text: "穿著帶珍珠釦的復古襯衫，溫柔、復古，像一張被保存很久的舊照片。",
+        image: "images/q07-2.png",
         scores: { B: 2, D: 1 }
       },
       {
         text: "一件剪裁精緻的短版外套配上珍珠胸針，精緻、明亮，像每個細節都剛好漂亮得有意圖。",
+        image: "images/q07-3.png",
         scores: { C: 2, B: 1 }
       },
       {
         text: "寬版外套配上球鞋，率性、自由，像下一秒就會離開鏡頭繼續往前走。",
+        image: "images/q07-4.png",
         scores: { E: 2, F: 1 }
       }
     ]
