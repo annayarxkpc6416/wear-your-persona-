@@ -140,22 +140,22 @@ const questions = [
     options: [
       {
         text: "冷白襯衫、銀灰寬褲、霧藍長外套與一只俐落斜背包，畫面乾淨，線條安靜地對齊。",
-        image: "images/q01-a.png",
+        image: "images/webp/q01-a.webp",
         scores: { A: 2, E: 1 }
       },
       {
         text: "奶油色長裙、酒紅絲絨外套與珍珠耳飾，柔和又復古，像舊電影裡的一幕。",
-        image: "images/q01-b.png",
+        image: "images/webp/q01-b.webp",
         scores: { B: 2, C: 1 }
       },
       {
         text: "粉藍短版外套、白色短裙與黑色蝴蝶結，精緻甜美，但輪廓很清楚。",
-        image: "images/q01-c.png",
+        image: "images/webp/q01-c.webp",
         scores: { C: 2, B: 1 }
       },
       {
         text: "黑色長外套、深藍高領與暗紅皮靴，色彩沉穩，帶著安靜的距離感。",
-        image: "images/q01-d.png",
+        image: "images/webp/q01-d.webp",
         scores: { D: 2, A: 1 }
       }
     ]
@@ -188,22 +188,22 @@ const questions = [
     options: [
       {
         text: "一件剪裁俐落的長版外套，搭上深色內搭後，整體立刻沉靜下來、有了重量，帶一點不容易讀懂的距離感。",
-        image: "images/q03-1.png",
+        image: "images/webp/q03-1.webp",
         scores: { D: 2, A: 1 }
       },
       {
         text: "一件帶蕾絲領口的復古襯衫，搭長裙或瑪莉珍鞋時，會讓整套穿搭變得柔和又有故事感。",
-        image: "images/q03-2.png",
+        image: "images/webp/q03-2.webp",
         scores: { B: 2, C: 1 }
       },
       {
         text: "一件短版毛呢外套，搭配小包與亮面皮鞋，會讓整個人看起來精緻、亮眼，像是出門前有認真打理過。",
-        image: "images/q03-3.png",
+        image: "images/webp/q03-3.webp",
         scores: { C: 2, A: 1 }
       },
       {
         text: "一件寬鬆外套，裡面搭舒適上衣，再配上好走的鞋子；既能自由行動，也不會顯得太用力。",
-        image: "images/q03-4.png",
+        image: "images/webp/q03-4.webp",
         scores: { E: 2, F: 1 }
       }
     ]
@@ -214,22 +214,22 @@ const questions = [
     options: [
       {
         text: "一件白色系大衣或俐落西裝外套，站在白牆旁，讓灰黑線條成為展場裡最安靜的存在。",
-        image: "images/q04-1.png",
+        image: "images/webp/q04-1.webp",
         scores: { A: 2, D: 1 }
       },
       {
         text: "復古襯衫、緞面長裙與珍珠耳飾在燈下帶著柔光，像從舊畫報走進現場。",
-        image: "images/q04-2.png",
+        image: "images/webp/q04-2.webp",
         scores: { B: 2, C: 1 }
       },
       {
         text: "一件柔軟針織衫配寬鬆長褲，自在，不特別講究造型，但站在人群裡很舒服。",
-        image: "images/q04-3.png",
+        image: "images/webp/q04-3.webp",
         scores: { F: 2, B: 1 }
       },
       {
         text: "寬版外套、斜背包與球鞋讓你能自由穿過人群，不被場地綁住。",
-        image: "images/q04-4.png",
+        image: "images/webp/q04-4.webp",
         scores: { E: 2, A: 1 }
       }
     ]
@@ -240,22 +240,22 @@ const questions = [
     options: [
       {
         text: "棉麻或法蘭絨（帶毛絨感、柔軟保暖的厚織布），舒服，讓身體可以放鬆呼吸。",
-        image: "images/q05-1.png",
+        image: "images/webp/q05-1.webp",
         scores: { F: 2, A: 1 }
       },
       {
         text: "緞面（帶柔亮光澤的布料）、蕾絲與珍珠細節，觸感柔和，像把浪漫藏在細節裡。",
-        image: "images/q05-2.png",
+        image: "images/webp/q05-2.webp",
         scores: { B: 2, C: 1 }
       },
       {
         text: "粗花呢（帶顆粒感、略蓬鬆的厚織布）、金屬釦與亮面皮革，精緻但不柔弱，帶一點小脾氣。",
-        image: "images/q05-3.png",
+        image: "images/webp/q05-3.webp",
         scores: { C: 2, D: 1 }
       },
       {
         text: "尼龍（輕、防潑水感的機能布）、丹寧與厚磅棉料，耐穿、能動，像衣服本身就有行動力。",
-        image: "images/q05-4.png",
+        image: "images/webp/q05-4.webp",
         scores: { E: 2, F: 1 }
       }
     ]
@@ -288,22 +288,22 @@ const questions = [
     options: [
       {
         text: "一件黑色系的高領或長版外套，冷靜、有戒備感，像不需要靠表情也能成立的畫面，卻又精緻得讓人多看一眼。",
-        image: "images/q07-1.png",
+        image: "images/webp/q07-1.webp",
         scores: { D: 2, C: 1 }
       },
       {
         text: "穿著帶珍珠釦的復古襯衫，溫柔、復古，像一張被保存很久的舊照片。",
-        image: "images/q07-2.png",
+        image: "images/webp/q07-2.webp",
         scores: { B: 2, D: 1 }
       },
       {
         text: "一件剪裁精緻的短版外套配上珍珠胸針，精緻、明亮，像每個細節都剛好漂亮得有意圖。",
-        image: "images/q07-3.png",
+        image: "images/webp/q07-3.webp",
         scores: { C: 2, B: 1 }
       },
       {
         text: "寬版外套配上球鞋，率性、自由，像下一秒就會離開鏡頭繼續往前走。",
-        image: "images/q07-4.png",
+        image: "images/webp/q07-4.webp",
         scores: { E: 2, F: 1 }
       }
     ]
@@ -500,4 +500,3 @@ startBtn.addEventListener("click", startQuiz);
 restartBtn.addEventListener("click", restartQuiz);
 
 typeText(homeIntro, homeIntroText, 45);
-
