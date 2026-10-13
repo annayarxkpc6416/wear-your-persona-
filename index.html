@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500&display=swap" rel="stylesheet">
   <title>衣格人格 Wear Your Persona</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -34,10 +37,43 @@
     </section>
 
     <section id="result-page" class="page">
-      <p class="eyebrow">Your Persona</p>
-      <h2 id="result-title"></h2>
-      <p id="result-description" class="intro"></p>
-      <button id="restart-btn" class="primary-btn" type="button">重新測驗</button>
+      <div class="result-card">
+        <p class="eyebrow">Your Persona</p>
+        <h2 id="result-title" class="result-title"></h2>
+        <p id="result-english" class="result-english"></p>
+        <p id="result-tagline" class="result-tagline"></p>
+
+        <div class="result-section">
+          <h3 class="result-section-title">人格／穿搭特質</h3>
+          <p id="result-description" class="result-text"></p>
+        </div>
+
+        <div class="result-grid">
+          <div class="result-item">
+            <h4 class="result-item-title">代表色系</h4>
+            <p id="result-colors" class="result-text"></p>
+          </div>
+          <div class="result-item">
+            <h4 class="result-item-title">適合材質</h4>
+            <p id="result-materials" class="result-text"></p>
+          </div>
+          <div class="result-item">
+            <h4 class="result-item-title">推薦單品</h4>
+            <p id="result-items" class="result-text"></p>
+          </div>
+          <div class="result-item">
+            <h4 class="result-item-title">風格關鍵字</h4>
+            <p id="result-keywords" class="result-text"></p>
+          </div>
+        </div>
+
+        <div class="result-section">
+          <h3 class="result-section-title">穿搭建議</h3>
+          <p id="result-tips" class="result-text"></p>
+        </div>
+
+        <button id="restart-btn" class="primary-btn" type="button">重新測驗</button>
+      </div>
     </section>
   </main>
 

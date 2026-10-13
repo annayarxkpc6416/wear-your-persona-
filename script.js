@@ -12,32 +12,124 @@ const questionTitle = document.querySelector("#question-title");
 const optionsContainer = document.querySelector("#options");
 const progressBar = document.querySelector("#progress-bar");
 const resultTitle = document.querySelector("#result-title");
+const resultEnglish = document.querySelector("#result-english");
+const resultTagline = document.querySelector("#result-tagline");
 const resultDescription = document.querySelector("#result-description");
+const resultColors = document.querySelector("#result-colors");
+const resultMaterials = document.querySelector("#result-materials");
+const resultItems = document.querySelector("#result-items");
+const resultTips = document.querySelector("#result-tips");
+const resultKeywords = document.querySelector("#result-keywords");
+const homeIntro = document.querySelector("#home-page .intro");
+const homeIntroText = homeIntro.textContent;
+
+const typingTimeouts = new WeakMap();
+
+function typeText(element, text, speed = 30) {
+  const previousAnimation = typingTimeouts.get(element);
+  if (previousAnimation) {
+    clearTimeout(previousAnimation.timeoutId);
+    previousAnimation.resolve();
+  }
+
+  element.classList.remove("is-typing");
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    element.textContent = text;
+    return Promise.resolve();
+  }
+
+  const characters = Array.from(text);
+  element.textContent = "";
+  element.classList.add("is-typing");
+
+  return new Promise((resolve) => {
+    let index = 0;
+    const typeNextCharacter = () => {
+      index += 1;
+      element.textContent = characters.slice(0, index).join("");
+
+      if (index >= characters.length) {
+        element.classList.remove("is-typing");
+        typingTimeouts.delete(element);
+        resolve();
+        return;
+      }
+
+      const timeoutId = setTimeout(typeNextCharacter, speed);
+      typingTimeouts.set(element, { timeoutId, resolve });
+    };
+
+    typingTimeouts.set(element, { timeoutId: null, resolve });
+    typeNextCharacter();
+  });
+}
 
 const resultTypes = {
   A: {
-    title: "A｜極簡質感型",
-    description: "你偏好乾淨線條、低調配色與耐看的單品。比起流行速度，你更在意衣服是否舒服、實穿、有品質。"
+    title: "冷感極簡系",
+    english: "Cool Minimalist",
+    tagline: "越簡單，越能看出品味。",
+    description: "你偏好乾淨、克制、有秩序感的穿搭。你不喜歡過度裝飾，也不需要用大量元素證明自己的存在感。對你來說，風格不是把所有東西穿上身，而是知道什麼可以留下，什麼應該拿掉。你的衣著常帶有冷靜、俐落、清楚的氣質，讓人感覺理性、成熟，也帶一點不容易被靠近的距離感。",
+    colors: "冷白、銀灰、霧藍、黑色、低飽和中性色",
+    materials: "挺版棉、細緻羊毛、西裝布料、霧面皮革、滑面針織",
+    items: "白襯衫、灰色直筒褲、長版大衣、俐落西裝外套、極簡斜背包",
+    tips: "適合選擇線條明確、剪裁乾淨的單品，避免太多碎花、蕾絲或高彩度裝飾。可以用同色系層次、材質對比與比例控制提升精緻感。你的重點不是華麗，而是讓每一個細節都剛好。",
+    keywords: "冷靜、乾淨、俐落、秩序感、低飽和、高級感"
   },
   B: {
-    title: "B｜街頭混搭型",
-    description: "你的風格有行動感與個性，喜歡用帽款、球鞋、寬鬆版型或亮眼小物表達態度。"
+    title: "浪漫復古系",
+    english: "Romantic Vintage",
+    tagline: "我想把浪漫穿得像日常，也把日常保存成記憶。",
+    description: "你容易被帶有故事感、年代感與柔和細節的衣服吸引。你不是單純追求可愛，而是喜歡衣服裡有情緒、有記憶、有一點舊電影般的溫度。你的穿搭常帶著柔軟、優雅、懷舊的氛圍，像是在日常裡保留一段慢下來的時間。",
+    colors: "奶油白、酒紅、焦糖棕、玫瑰粉、復古米色",
+    materials: "緞面、蕾絲、絲絨、細針織、柔軟棉質、珍珠光澤材質",
+    items: "復古襯衫、緞面長裙、珍珠耳飾、瑪莉珍鞋、絲絨外套",
+    tips: "可以多使用柔和輪廓、復古配件與細節設計，例如蕾絲領口、珍珠釦、緞面裙或小皮鞋。避免整體過度甜膩，加入一點深色或俐落單品，能讓浪漫感更成熟。",
+    keywords: "復古、柔和、浪漫、懷舊、優雅、故事感"
   },
   C: {
-    title: "C｜甜美柔和型",
-    description: "你適合溫柔、親切、有細節的穿搭，像是柔和色彩、針織、裙裝或帶有浪漫感的元素。"
+    title: "甜酷千金系",
+    english: "Sweet Chic Heiress",
+    tagline: "可愛不是幼稚，是被精心控制過的吸引力。",
+    description: "你喜歡精緻、漂亮、被好好打理過的感覺。你的風格不是單純甜美，而是甜中帶著自信和一點銳利感。你適合看起來有設計、有質感、有存在感的單品，像是短版外套、珍珠細節、亮面皮鞋或小包。你的穿搭會讓人感覺明亮、精準、帶一點驕傲，但不是混亂張揚。",
+    colors: "粉藍、象牙白、柔粉、黑色、裸色、香檳金",
+    materials: "粗花呢、亮面皮革、細緻針織、珍珠、金屬釦、挺版布料",
+    items: "短版毛呢外套、白色短裙、珍珠胸針、小型肩背包、亮面皮鞋",
+    tips: "適合用精緻單品建立完整造型，例如短版外套搭裙裝、小包與飾品呼應。要避免元素過多導致廉價感，甜美與酷感比例可以控制在 7:3 或 6:4，保留可愛，但讓線條保持清楚。",
+    keywords: "精緻、甜酷、明亮、自信、千金感、漂亮得有意圖"
   },
   D: {
-    title: "D｜知性俐落型",
-    description: "你的衣格重視清楚、有精神與好整理。襯衫、西裝外套、直筒褲等單品很能襯托你的氣質。"
+    title: "暗黑文學系",
+    english: "Dark Literary",
+    tagline: "我不需要被讀懂，也不需要急著解釋自己。",
+    description: "你偏好深色、沉穩、有情緒重量的穿搭。你的風格帶有安靜的防衛感，不是為了討好別人，而是替自己保留一段距離。你適合長版外套、高領、深色皮靴、低彩度層次等單品。你的衣服像是一層邊界，把情緒藏起來，也把氣質留下來。",
+    colors: "黑色、深藍、炭灰、暗紅、墨綠、冷棕",
+    materials: "厚呢、霧面皮革、深色針織、羊毛、挺版長版布料",
+    items: "黑色長外套、深色高領、暗紅皮靴、長裙、結構感大衣",
+    tips: "可以使用深色系層次、長版比例與有重量感的材質，營造沉靜但不邋遢的風格。避免全身過於厚重，可以用一個亮點，例如暗紅靴子、銀色飾品或特殊領型，讓造型更有記憶點。",
+    keywords: "深色、文學感、距離感、冷調、沉靜、情緒重量"
   },
   E: {
-    title: "E｜復古文藝型",
-    description: "你喜歡帶有故事感的穿搭，能駕馭復古色、格紋、牛仔、皮革或帶一點舊時代味道的單品。"
+    title: "街頭機能系",
+    english: "Urban Utility",
+    tagline: "自由不是隨便，是清楚知道自己要往哪裡走。",
+    description: "你重視行動感、自由度與實穿性。你喜歡衣服能陪你移動，而不是只能被小心展示。你的風格帶有城市感與機能性，適合寬版外套、斜背包、球鞋、尼龍材質或丹寧單品。你不一定追求精緻甜美，但很在意穿起來是否能動、能走、能應付生活。",
+    colors: "黑色、軍綠、深灰、丹寧藍、卡其、冷白",
+    materials: "尼龍、丹寧、厚磅棉、帆布、防潑水布料、機能布",
+    items: "寬版外套、斜背包、球鞋、工裝褲、機能背心",
+    tips: "適合選擇有口袋、拉鍊、層次與實用細節的單品。可以用俐落配色避免看起來太隨便，例如黑白灰加一個機能色。重點是讓造型看起來能行動，而不是只是鬆垮。",
+    keywords: "街頭、機能、行動感、自由、率性、實穿"
   },
   F: {
-    title: "F｜亮眼創意型",
-    description: "你不怕嘗試新鮮組合，適合鮮明色彩、特殊剪裁或有趣圖案。穿搭對你來說是一種創作。"
+    title: "自然鬆弛系",
+    english: "Natural Relaxed",
+    tagline: "舒服不是隨便，是更接近自己。",
+    description: "你喜歡自在、柔軟、不過度用力的穿搭。你在意衣服貼近身體時的感受，也在意自己能不能自然地生活。你的風格不靠強烈裝飾取勝，而是透過舒服材質、寬鬆比例、低飽和色彩與溫和氣質，讓人感覺放鬆、親近、穩定。",
+    colors: "米白、燕麥色、淺灰、霧綠、柔棕、低飽和藍",
+    materials: "棉麻、法蘭絨、柔軟針織、棉質襯衫、刷毛布料",
+    items: "寬鬆針織衫、棉麻襯衫、寬褲、舒服牛仔褲、低彩度外套",
+    tips: "適合用材質和比例做出舒服但不邋遢的層次。可以選擇寬鬆但有整理感的版型，例如寬褲搭短版針織，或柔軟襯衫搭直筒褲。避免全身過於鬆散，保留一個明確輪廓會更有精神。",
+    keywords: "自然、鬆弛、舒適、溫和、低飽和、生活感"
   }
 };
 
@@ -311,7 +403,7 @@ function renderQuestion() {
 
   isAnswerLocked = false;
   questionCount.textContent = `Question ${questionNumber} / ${questions.length}`;
-  questionTitle.textContent = question.text;
+  typeText(questionTitle, question.text, 45);
   progressBar.style.width = `${(currentQuestionIndex / questions.length) * 100}%`;
   optionsContainer.innerHTML = "";
   optionsContainer.classList.toggle("has-images", question.options.some((option) => option.image));
@@ -379,9 +471,20 @@ function showResult() {
     return scores[type] > scores[bestType] ? type : bestType;
   }, "A");
 
-  resultTitle.textContent = resultTypes[winner].title;
-  resultDescription.textContent = resultTypes[winner].description;
+  const result = resultTypes[winner];
+  const title = `${winner} ｜ ${result.title}`;
+  resultEnglish.textContent = result.english;
+  resultDescription.textContent = result.description;
+  resultColors.textContent = result.colors;
+  resultMaterials.textContent = result.materials;
+  resultItems.textContent = result.items;
+  resultTips.textContent = result.tips;
+  resultKeywords.textContent = result.keywords;
+  resultTagline.textContent = "";
   showPage("result");
+  typeText(resultTitle, title, 60).then(() => {
+    typeText(resultTagline, result.tagline, 45);
+  });
 }
 
 function restartQuiz() {
@@ -390,8 +493,11 @@ function restartQuiz() {
   isAnswerLocked = false;
   progressBar.style.width = "0";
   showPage("home");
+  typeText(homeIntro, homeIntroText, 45);
 }
 
 startBtn.addEventListener("click", startQuiz);
 restartBtn.addEventListener("click", restartQuiz);
+
+typeText(homeIntro, homeIntroText, 45);
 

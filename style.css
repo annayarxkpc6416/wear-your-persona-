@@ -7,6 +7,7 @@
   --accent: #171717;
   --accent-dark: #4d7185;
   --accent-soft: #c6dce9;
+  --question-color: #54372e;
   --button-text: #ffffff;
 }
 
@@ -107,6 +108,13 @@ h2 {
   line-height: 1.7;
 }
 
+.is-typing::after {
+  display: inline-block;
+  margin-left: 2px;
+  content: "|";
+  animation: cursorBlink 0.8s steps(2, start) infinite;
+}
+
 #home-page .intro {
   margin-top: 0;
 }
@@ -147,8 +155,19 @@ h2 {
 .progress-bar {
   width: 0;
   height: 100%;
-  background: var(--accent);
+  background: var(--question-color);
   transition: width 0.25s ease;
+}
+
+#question-title {
+  color: var(--question-color);
+  font-family: "Noto Serif TC", "GenRyuMin TW", "源流明體", "Source Han Serif TC", FangSong, "仿宋", "STFangsong", "KaiTi", "標楷體", "DFKai-SB", serif;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+#question-count {
+  color: var(--question-color);
 }
 
 .options {
@@ -167,7 +186,7 @@ h2 {
   padding: 18px 20px;
   background: #ffffff;
   border: 1px solid var(--line);
-  color: var(--text);
+  color: var(--question-color);
   text-align: left;
   line-height: 1.5;
   box-shadow: 0 12px 30px rgba(23, 23, 23, 0.06);
@@ -182,7 +201,7 @@ h2 {
 }
 
 .option-btn:disabled {
-  color: var(--text);
+  color: var(--question-color);
   cursor: default;
   opacity: 1;
 }
@@ -210,7 +229,7 @@ h2 {
 
 .options.has-images .option-text {
   padding: 16px 18px 18px;
-  color: var(--text);
+  color: var(--question-color);
   font-size: 15px;
   line-height: 1.65;
 }
@@ -238,6 +257,106 @@ h2 {
   }
 }
 
+@keyframes cursorBlink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .is-typing::after {
+    animation: none;
+  }
+}
+
+/* Result Page Styles */
+.result-card {
+  width: 100%;
+  max-width: 100%;
+}
+
+#result-page.active {
+  justify-content: flex-start;
+}
+
+.result-title {
+  font-size: 28px;
+  margin: 8px 0 0;
+  color: var(--accent);
+}
+
+.result-english {
+  margin: 4px 0 8px;
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.result-tagline {
+  margin: 0 0 24px;
+  color: var(--text);
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.result-section {
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.result-section:last-of-type {
+  border-bottom: none;
+}
+
+.result-section-title {
+  margin: 0 0 12px;
+  font-size: 16px;
+  color: var(--accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.result-text {
+  margin: 0;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.result-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.result-item-title {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+#result-page .primary-btn {
+  margin-top: 16px;
+  align-self: flex-start;
+}
+
 @media (max-width: 640px) {
   body {
     padding: 16px;
@@ -255,6 +374,28 @@ h2 {
 
   .options.has-images {
     grid-template-columns: 1fr;
+  }
+
+  .result-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .result-title {
+    font-size: 24px;
+  }
+
+  .result-tagline {
+    font-size: 16px;
+  }
+
+  .result-section {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+
+  .result-text {
+    font-size: 14px;
   }
 
   h1 {
